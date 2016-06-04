@@ -4,8 +4,10 @@ class rampup_profile_puppetmaster {
 
   class { 'hiera':
     hierarchy  => [
-      'virtual/%{::virtual}',
       'nodes/%{::trusted.certname}',
+      'role-env/%{environment}/%{role}',
+      'role/%{role}',
+      'env/%{vironment}',
       'common',
     ],
     hiera_yaml => $hiera_yaml,
