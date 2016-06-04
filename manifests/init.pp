@@ -10,11 +10,14 @@ class rampup_profile_puppetmaster {
       'env/%{vironment}',
       'common',
     ],
-    hiera_yaml => $hiera_yaml,
-    datadir    => '/etc/puppetlabs/code/environments/%{environment}/hieradata',
-    owner      => 'pe-puppet',
-    group      => 'pe-puppet',
-    notify     => Service['pe-puppetserver'],
+    hiera_yaml      => $hiera_yaml,
+    datadir         => '/etc/puppetlabs/code/environments/%{environment}/hieradata',
+    owner           => 'pe-puppet',
+    group           => 'pe-puppet',
+    eyaml           => true,
+    eyaml_extension => 'yaml'
+    backends        => [ 'eyaml', ],
+    notify          => Service['pe-puppetserver'],
   }
 
   ini_setting { 'puppet.conf hiera_config master section' :
