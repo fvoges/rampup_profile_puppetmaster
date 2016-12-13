@@ -15,7 +15,7 @@ class rampup_profile_puppetmaster {
     owner           => 'pe-puppet',
     group           => 'pe-puppet',
     eyaml           => true,
-    eyaml_extension => 'yaml'
+    eyaml_extension => 'yaml',
     backends        => [ 'eyaml', ],
     notify          => Service['pe-puppetserver'],
   }
