@@ -1,13 +1,14 @@
+#
 class rampup_profile_puppetmaster {
 
   $hiera_yaml = "${::settings::confdir}/hiera.yaml"
 
   class { 'hiera':
-    hierarchy  => [
+    hierarchy       => [
       'nodes/%{::trusted.certname}',
       'role-env/%{environment}/%{role}',
       'role/%{role}',
-      'env/%{vironment}',
+      'env/%{environment}',
       'common',
     ],
     hiera_yaml      => $hiera_yaml,
