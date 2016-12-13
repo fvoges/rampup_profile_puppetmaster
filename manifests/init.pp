@@ -9,6 +9,7 @@ class rampup_profile_puppetmaster {
       'role-env/%{environment}/%{role}',
       'role/%{role}',
       'env/%{environment}',
+      'virtual/%{virtual}',
       'common',
     ],
     hiera_yaml      => $hiera_yaml,
